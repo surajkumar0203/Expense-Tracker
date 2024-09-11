@@ -1,0 +1,133 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0b093a;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Improved input boxes */
+form input, form select, form button {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+form input:focus, form select:focus {
+  border-color: #28a745;
+  outline: none;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+/* Responsive table styles */
+.expense-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  display: table; /* Ensure table is always visible */
+}
+
+.expense-table th, .expense-table td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.expense-table th {
+  background-color: #f8f8f8;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  form input, form select, form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Add scroll to table on mobile */
+  .expense-table {
+    overflow-x: auto;
+  }
+
+  .expense-table table {
+    min-width: 600px; /* Ensure table isn't squished */
+  }
+
+  .total-amount, .total-income, .total-expense {
+    text-align: left;
+    padding: 10px 0;
+    font-size: 16px;
+  }
+}
+.green-color{
+  color: #28a745;
+ 
+}
+.red-color{
+  color: #a72e28;
+}
+
+.btn{
+  text-decoration: none;
+  padding: 3px 7px;
+  border-radius: 10px;
+  
+
+}
+.edit-btn{
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  
+  
+}
+.delete-btn{
+  background-color: #a72828;
+  color: white;
+}
+/* Total Income and Expense */
+.total-income {
+  color: #28a745;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.total-expense {
+  color: #a72828;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.total-amount {
+  font-size: 18px;
+  font-weight: bold;
+}
