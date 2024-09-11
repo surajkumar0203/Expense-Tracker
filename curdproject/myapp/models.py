@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from django.db.models import Q,CheckConstraint
+from django.db.models import CheckConstraint
 
 class BaseModel(models.Model):
     uuid=models.UUIDField(default=uuid.uuid4,primary_key=True,editable=False)
