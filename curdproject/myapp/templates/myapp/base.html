@@ -6,16 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
     <link rel="stylesheet" href="{% static "css/main_style.css" %}"/>
+    {% block style_ragister_login %}{% endblock style_ragister_login %}
+    <link rel="stylesheet" href="{% static "css/notification_style.css" %}"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
     <link rel="icon" href="{% static "favicon/favicon.ico" %}">
-    
-    
-    
 </head>
 <body>
+    {% comment %} for notification {% endcomment %}
+    {% if messages %}
+        <div class="notification show" id="notification" >
+            <ul class="messages" id="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            <button class="close-btn" id="close-btn">&times;</button>
+        </div>
+    {% endif %}
+    
+    {% comment %} header path {% endcomment %}
+    <div class="header-container">
+        <div>
+            <img src="{% static "image/logo.png" %}" alt="{% static "image/logo.png" %}" />
+        </div>
+
+        <div>
+            {% if username %}
+            
+                <span>Your username : {{username}} </span>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+                <a href='{% url "logout_page" %}'>logout</a>
+                {% else %}
+                <a href='{% url "login" %}'>Login</a>
+                <a href='{% url "ragister" %}'>Ragister</a>
+            {% endif %}
+        </div>
+    </div>
+
     
     {% block start %}{% endblock start %}
-
+    
     <script src="{% static "javascript/main_script.js" %}"></script>
+    <script src="{% static "javascript/notification_script.js" %}"></script>
 </body>
 </html>

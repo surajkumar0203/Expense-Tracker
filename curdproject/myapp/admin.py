@@ -1,3 +1,7 @@
 from django.contrib import admin
+from myapp.models import Transaction
 
-# Register your models here.
+@admin.register(Transaction)
+class Transaction_admin(admin.ModelAdmin):
+    list_display=['uuid','expance_name','amount','category']
+
