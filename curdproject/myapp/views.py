@@ -97,6 +97,26 @@ def login_page(request):
     return render(request,'myapp/login.html')
 
 @login_required(login_url="/")
+def change_password(request):
+    if(request.method=="POST"):
+        password=request.POST.get('password')
+        confirm_password=request.POST.get('confirmpassword')
+        if password!=confirm_password:
+            messages.error(request,"Password and Confirm Password not Equal")
+            return redirect('/changepassword/')
+        
+        user=User.objects.get(username=request.user)
+        user.set_password(password)
+        user.save()
+        messages.error(request,"Password updated")
+        return redirect('/changepassword/')
+    
+    context={
+        'username':request.user
+    }
+    return render(request,'myapp/change_password.html',context)
+
+@login_required(login_url="/")
 def logout_page(request):
     logout(request)
     return redirect('/')
